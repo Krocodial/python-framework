@@ -1,0 +1,33 @@
+name: Lint & Static scan
+on: 
+  push:
+    branches:
+      - dev
+      - master
+      - release/*
+    pull_request:
+      branches:
+        - dev
+        - master
+
+jobs:
+  build:
+    name: Lint
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [3.5]
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up python ${{ matrix.python-version }}
+        uses: actions/setup-python@v1
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Python security check using Bandit
+        uses: Krocodial/bandit-report-artifacts@V1
+        with:
+          python_version: ${{ matrix.python-version }}
+          project_path: '.'
+          ignore_failure: 'false'
+          security_level: 'll'
+          security_confidence: 'ii'
