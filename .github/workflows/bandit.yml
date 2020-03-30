@@ -21,8 +21,8 @@ jobs:
         with:
           project_path: '.'
           ignore_failure: 'false'
-          security_level: 'l'
-          security_confidence: 'i'
+          security_level: 'll'
+          security_confidence: 'ii'
       - name: Security report artifacts
         uses: actions/upload-artifact@v1
         if: failure()
