@@ -29,5 +29,5 @@ jobs:
           python_version: ${{ matrix.python-version }}
           project_path: '.'
           ignore_failure: 'false'
-          security_level: 'll'
-          security_confidence: 'ii'
+          security_level: 'l'
+          security_confidence: 'i'
