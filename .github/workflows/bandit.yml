@@ -25,7 +25,7 @@ jobs:
           security_confidence: 'i'
       - name: Security report artifacts
         uses: actions/upload-artifact@v1
-        if: failed()
+        if: failure()
         with:
           name: Static scan report
           path: output/security_report.txt
